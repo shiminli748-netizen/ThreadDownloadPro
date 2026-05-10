@@ -50,7 +50,7 @@
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxBackgroundColor="@color/md_theme_surfaceContainer"
             app:endIconMode="custom"
-            app:endIconDrawable="@android:drawable/ic_menu_paste"
+            app:endIconDrawable="@android:drawable/ic_input_get"
             android:layout_marginBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText

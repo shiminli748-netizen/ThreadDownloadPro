@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_theme_primary">#82B1FF</color>
+    <color name="md_theme_onPrimary">#003062</color>
+    <color name="md_theme_primaryContainer">#00468C</color>
+    <color name="md_theme_onPrimaryContainer">#D1E4FF</color>
+    <color name="md_theme_secondary">#BFC6DC</color>
+    <color name="md_theme_onSecondary">#283041</color>
+    <color name="md_theme_secondaryContainer">#3F4759</color>
+    <color name="md_theme_onSecondaryContainer">#DBE1F9</color>
+    <color name="md_theme_tertiary">#C4C0EA</color>
+    <color name="md_theme_onTertiary">#2D2960</color>
+    <color name="md_theme_background">#1A1C1E</color>
+    <color name="md_theme_onBackground">#E2E2E6</color>
+    <color name="md_theme_surface">#1A1C1E</color>
+    <color name="md_theme_onSurface">#E2E2E6</color>
+    <color name="md_theme_surfaceVariant">#43474E</color>
+    <color name="md_theme_onSurfaceVariant">#C3C6CF</color>
+    <color name="md_theme_outline">#8D9199</color>
+    <color name="md_theme_surfaceContainer">#2E3033</color>
+    <color name="md_theme_surfaceContainerHigh">#383A3D</color>
+    <color name="md_theme_error">#FFB4AB</color>
+    <color name="md_theme_onError">#690005</color>
+    <color name="download_accent">#448AFF</color>
+    <color name="download_success">#69F0AE</color>
+    <color name="download_error">#FF5252</color>
+    <color name="download_card_bg">#2E3033</color>
+</resources>

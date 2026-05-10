@@ -1,0 +1,63 @@
+name: Build & Release APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate Gradle wrapper
+        run: gradle wrapper --gradle-version 8.9
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease || true
+
+      - name: List APK outputs
+        run: find app/build/outputs -name "*.apk" -type f -exec ls -lh {} \;
+
+      - name: Upload APKs to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: "线程下载Pro v1.0.0 - 多线程直链下载器"
+          body: |
+            🚀 线程下载Pro - 多线程直链加速器
+
+            ✨ 功能特性：
+            - 支持64/128/256线程多线程下载
+            - 自动检测服务器Range支持，不支持时降级单线程
+            - 实时显示下载进度、速度、剩余时间
+            - 支持暂停/恢复/取消
+            - 下载完成自动提示，支持打开和分享
+            - 下载历史记录
+            - Material Design 3深色主题
+
+            📁 下载目录：/storage/emulated/0/ThreadDownload/
+          files: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

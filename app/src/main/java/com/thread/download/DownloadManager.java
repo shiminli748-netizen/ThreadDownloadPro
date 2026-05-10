@@ -223,11 +223,12 @@ public class DownloadManager {
         lastSpeedCalcTime = now;
 
         int activeThreads = threadCount - completedThreads.get() - failedThreads.get();
-        long speed = currentSpeed;
+        final long finalSpeed = currentSpeed;
+        final long finalDownloaded = totalDownloaded;
 
         mainHandler.post(() -> {
             if (listener != null) {
-                listener.onProgress(totalDownloaded, fileSize, speed, activeThreads);
+                listener.onProgress(finalDownloaded, fileSize, finalSpeed, activeThreads);
             }
         });
     }
